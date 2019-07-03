@@ -2,11 +2,10 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import FileSerializer
-from django.views.decorators.csrf import csrf_exempt
 from functools import wraps
 from rest_framework.parsers import FileUploadParser
 import csv
-from django.contrib.auth.models import User
+
 # Create your views here.
 
 def my_decorator(func):
