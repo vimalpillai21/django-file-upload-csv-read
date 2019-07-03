@@ -11,9 +11,12 @@ from django.contrib.auth.models import User
 
 def my_decorator(func):
     def wrapper(*args,**kwargs):
-        print(args)
         print("Before executing get method")
-        print(args[1].user)
+        if str(args[1].user) == 'admin':
+            return Response({
+                'data': 'Wrong User'
+            })
+            raise Exception('Wrong user')
         return func(*args,**kwargs)
         print("After executing get method")
     return wraps(func)(wrapper)
